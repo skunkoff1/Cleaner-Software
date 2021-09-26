@@ -1,0 +1,122 @@
+﻿<Window x:Class="Logiciel_Nettoyage.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Logiciel_Nettoyage"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1200" ResizeMode="NoResize">
+    <Grid>
+        <!--   header   -->
+        <Rectangle HorizontalAlignment="Left" Height="176" Stroke="Black" VerticalAlignment="Top" Width="900" Fill="#FF2D8AB6" Margin="300,0,0,0" StrokeThickness="0"/>
+        <Rectangle HorizontalAlignment="Left" Height="160" Stroke="Black" VerticalAlignment="Top" Width="300" Fill="#FF1E4ABF" StrokeThickness="0"/>
+        <Rectangle HorizontalAlignment="Left" Height="16" Margin="300,160,0,0" Stroke="Black" VerticalAlignment="Top" Width="900" StrokeThickness="0" Fill="#FFE0DEDE"/>
+        <Label Content="Analyse du PC nécessaire" HorizontalAlignment="Left" Margin="385,23,0,0" VerticalAlignment="Top" Height="38" Width="351" FontFamily="Global Sans Serif" FontSize="24" FontWeight="Bold" Foreground="White"/>
+        <Label Content="Espace à nettoyer : " HorizontalAlignment="Left" Margin="385,61,0,0" VerticalAlignment="Top" Height="27" Width="157" FontFamily="Global Sans Serif" FontSize="16" FontWeight="Normal" Foreground="White"/>
+        <Label Content="Dernière analyse : " HorizontalAlignment="Left" Margin="384,88,0,0" VerticalAlignment="Top" Height="27" Width="158" FontFamily="Global Sans Serif" FontSize="16" FontWeight="Normal" Foreground="White"/>
+        <Label Content="Dernière Mise à Jour : " HorizontalAlignment="Left" Margin="384,115,0,0" VerticalAlignment="Top" Height="27" Width="176" FontFamily="Global Sans Serif" FontSize="16" FontWeight="Normal" Foreground="White" RenderTransformOrigin="0.481,2.076"/>
+        <Label x:Name="cleanspace" Content="A déterminer après analyse" HorizontalAlignment="Left" Margin="547,63,0,0" VerticalAlignment="Top" Height="27" Width="292" FontFamily="Global Sans Serif" FontWeight="Normal" Foreground="White" RenderTransformOrigin="1.465,0.816" FontSize="14"/>
+        <Label x:Name="lastanalyse" Content="???" HorizontalAlignment="Left" Margin="547,90,0,0" VerticalAlignment="Top" Height="27" Width="292" FontFamily="Global Sans Serif" FontWeight="Normal" Foreground="White" RenderTransformOrigin="1.465,0.816" FontSize="14"/>
+        <Label x:Name="lastupdate" Content="???" HorizontalAlignment="Left" Margin="560,117,0,0" VerticalAlignment="Top" Height="27" Width="292" FontFamily="Global Sans Serif" FontWeight="Normal" Foreground="White" RenderTransformOrigin="1.465,0.816" FontSize="14"/>
+        <Button x:Name="analyse" Content="ANALYSER" HorizontalAlignment="Left" Padding="0,5,0,0" Margin="893,51,0,0" VerticalAlignment="Top" Height="59" Width="242" Background="{x:Null}" Foreground="White" FontFamily="Global Sans Serif" FontSize="26" FontWeight="Bold" BorderThickness="5,5,5,5" ClipToBounds="True" BorderBrush="White" Click="Button_analyse_Click"/>
+
+
+        <!--   Menu droite   -->
+        <Rectangle HorizontalAlignment="Left" Height="382" Margin="0,160,0,0" Stroke="Black" VerticalAlignment="Top" Width="300" Fill="#FF2D8AB6" StrokeThickness="0"/>
+        <Rectangle HorizontalAlignment="Left" Height="142" Stroke="Black" VerticalAlignment="Top" Width="300" Fill="#FF1E4ABF" StrokeThickness="0" Margin="0,542,0,0"/>
+        <Button x:Name="home" HorizontalAlignment="Left" Margin="0,160,0,0" VerticalAlignment="Top" Height="95" Width="300" Background="{x:Null}" Foreground="White" FontFamily="Global Sans Serif" FontSize="20" FontWeight="Bold" IsDefault="True" BorderThickness="0,0,0,0" ClipToBounds="True">
+            <StackPanel Orientation="Horizontal">
+                <Image HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Source="/monitor-icon.png" RenderTransformOrigin="0.829,0.4" Margin="0,0,0,0"/>
+                <TextBlock Text="VUE D'ENSEMBLE" Padding="15,15,0,0"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="analyseleft" HorizontalAlignment="Left" Margin="0,256,0,0" VerticalAlignment="Top" Height="95" Width="300" Background="{x:Null}" Foreground="White" FontFamily="Global Sans Serif" FontSize="20" FontWeight="Bold" IsDefault="True" BorderThickness="0,0,0,0" ClipToBounds="True">
+            <StackPanel Orientation="Horizontal">
+                <Image HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Source="/loupe-icon.png" RenderTransformOrigin="0.829,0.4" Margin="-63,0,0,0"/>
+                <TextBlock Text="ANALYSER" Padding="5,15,0,0"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="historyleft" HorizontalAlignment="Left" Margin="0,351,0,0" VerticalAlignment="Top" Height="95" Width="300" Background="{x:Null}" Foreground="White" FontFamily="Global Sans Serif" FontSize="20" FontWeight="Bold" IsDefault="True" BorderThickness="0,0,0,0" ClipToBounds="True" Click="Button_historyleft_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Source="/history-icon2.png" RenderTransformOrigin="0.829,0.4" Margin="-50,0,0,0"/>
+                <TextBlock Text="HISTORIQUE" Padding="15,15,0,0"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="options" HorizontalAlignment="Left" Margin="0,447,0,0" VerticalAlignment="Top" Height="95" Width="300" Background="{x:Null}" Foreground="White" FontFamily="Global Sans Serif" FontSize="20" FontWeight="Bold" IsDefault="True" BorderThickness="0,0,0,0" ClipToBounds="True">
+            <StackPanel Orientation="Horizontal">
+                <Image HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Source="/gear-icon.png" RenderTransformOrigin="0.829,0.4" Margin="-75 ,0,0,0"/>
+                <TextBlock Text="OPTIONS" Padding="0,15,0,0"/>
+            </StackPanel>
+        </Button>
+
+        <!--   footer   -->
+        <Rectangle HorizontalAlignment="Left" Height="100" Margin="300,584,0,0" Stroke="Black" VerticalAlignment="Top" Width="900" StrokeThickness="0" Fill="#FFB4AAAA"/>
+        <Label x:Name="version" Content="Version 1.0.0" HorizontalAlignment="Left" Margin="26,646,0,0" VerticalAlignment="Top" Width="145" Foreground="#FF958080" FontFamily="Global Sans Serif"/>
+        <Rectangle x:Name="info" HorizontalAlignment="Left" Height="50" Margin="300,634,0,0" Stroke="Black" VerticalAlignment="Top" Width="900" Visibility="Hidden">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD86A37"/>
+                    <GradientStop Color="#FFFB2121" Offset="0.993"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <!--   container   -->
+        <Button x:Name="clean" HorizontalAlignment="Left" Margin="348,260,0,0" VerticalAlignment="Top" Height="240" Width="230" FontSize="20" Foreground="White" FontWeight="Bold" FontFamily="Global Sans Serif">
+            <StackPanel Orientation="Vertical">
+                <Image Height="70" Width="70" Source="/Clean-icon.png" RenderTransformOrigin="0.829,0.4"/>
+                <TextBlock Text="NETTOYAGE" Padding="0,20,0,0"/>
+            </StackPanel>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF2D8AB6" Offset="1"/>
+                    <GradientStop Color="#FF9BCAE6" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="history" HorizontalAlignment="Left" Margin="632,260,0,0" VerticalAlignment="Top" Height="240" Width="236" FontSize="20" Foreground="White" FontWeight="Bold" FontFamily="Global Sans Serif" Click="Button_history_Click">
+            <StackPanel Orientation="Vertical">
+                <Image HorizontalAlignment="Left" Height="70" Margin="25,0,0,0" VerticalAlignment="Top" Width="70" Source="/History-icon.png"/>
+                <TextBlock Text="HISTORIQUE" Padding="0,20,0,0"/>
+            </StackPanel>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF2D8AB6" Offset="1"/>
+                    <GradientStop Color="#FF9BCAE6" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="update" HorizontalAlignment="Left" Margin="916,260,0,0" VerticalAlignment="Top" Height="240" Width="236" FontSize="20" Foreground="White" FontWeight="Bold" FontFamily="Global Sans Serif" Click="Button_update_Click">
+            <StackPanel Orientation="Vertical">
+                <Image HorizontalAlignment="Left" Height="70" Margin="28,0,0,0" VerticalAlignment="Top" Width="70" Source="/Update-icon.png"/>
+                <TextBlock Text="MISE A JOUR" Padding="0,20,0,0"/>
+            </StackPanel>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF2D8AB6" Offset="1"/>
+                    <GradientStop Color="#FF9BCAE6" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <!--   footer bas gauche   -->
+
+        <Button x:Name="website" HorizontalAlignment="Left" Margin="26,573,0,0" VerticalAlignment="Top" Height="50" Width="227" Background="#FF2D8AB6" HorizontalContentAlignment="Center" FontFamily="Global Sans Serif" FontWeight="Bold" FontSize="20" Foreground="#FFEAEAEA" Click="Button_website_click">
+            <StackPanel Orientation="Horizontal">
+                <Image Height="42" Width="55" Source="/Web_icons.png" HorizontalAlignment="Center" />
+                <TextBlock Text="SITE WEB" VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+
+
+
+
+
+
+
+
+    </Grid>
+</Window>
